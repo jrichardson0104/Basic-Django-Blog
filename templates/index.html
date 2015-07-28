@@ -2,29 +2,51 @@
 {% block title %}Welcome to my blog{% endblock %}
 
 {% block content %}
-    <h2>Categories</h2>
-    {% if categories %}
-        <ul>
-        {% for category in categories %}
+ <div class="container">
 
-            <li><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
-            
+      <div class="blog-header">
+        <h1 class="blog-title">A Bootstrap Blog</h1>
+        <p class="lead blog-description">Thoughts On Life</p>
 
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>There are no posts.</p>
-    {% endif %}
+        {% if categories %}
+            {% for category in categories %}
+                <a href="{{ category.get_absolute_url }}">|{{ category.title|upper }}|</a>
+            {% endfor %}
+        {% endif %}
+      </div>
 
-    <h2>Posts</h2>
-    {% if posts %}
-        <ul>
-        {% for post in posts %}
-            <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>There are no posts.</p>
-    {% endif %}
+      <div class="row">
+        
 
+        <div class="col-sm-8 blog-main">
+        {%  if posts %}
+            {% for post in posts %}
+          <div class="blog-post">
+            <h3 class="blog-post-title"> {{ post.title }} </h3>
+            <p class="blog-post-meta"> |{{  post.category|upper }}| {{ post.posted|date:"M d, Y" }}</p>
+
+            <p>{{ post.body }}</p>
+          </div><!-- /.blog-post -->
+            {% endfor %}
+        {% else %}
+            <p>There are not posts yet!</p>
+        {% endif %}
+          <nav>
+            <ul class="pager">
+              <li><a href="#">Previous</a></li>
+              <li><a href="#">Next</a></li>
+            </ul>
+          </nav>
+
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>About Me</h4>
+            <p>I'm just a simple blogger who enjoys thinking about life and all its strange qualities.</p>
+          </div>
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
 {% endblock %}

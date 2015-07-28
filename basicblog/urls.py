@@ -15,3 +15,4 @@ urlpatterns = [
     # url(r'^view_post', 'blog.views.view_post', name ='view_post'),
     url(r'^admin/', include(admin.site.urls)),
 ]
+##
