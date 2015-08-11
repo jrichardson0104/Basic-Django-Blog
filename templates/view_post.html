@@ -1,7 +1,24 @@
 {% extends 'base.html' %} 
-{% block head_title %}{{ post.title }}{% endblock %}
-{% block title %}{{ post.title }}{% endblock %}
+
 
 {% block content %}
-    {{ post.body }}
+<div class="container">
+	
+      <div class="blog-header">
+        <h1 class="blog-title">A Bootstrap Blog</h1>
+        <p class="lead blog-description">Thoughts On Life</p>
+
+        {% if categories %}
+            {% for category in categories %}
+                <a href="{{ category.get_absolute_url }}">|{{ category.title|upper }}|</a>
+            {% endfor %}
+        {% endif %}
+      </div> 
+      
+       <div class="col-sm-8 blog-main">
+       		 <h3 class="blog-post-title"> {{ post.title }} </h3>
+			{{ post.body }}
+    	</div>
+</div>
+    
 {% endblock %}
