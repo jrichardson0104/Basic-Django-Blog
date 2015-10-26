@@ -13,6 +13,3 @@ class CategoryAdmin(admin.ModelAdmin):
 
 admin.site.register(Blog, BlogAdmin)
 admin.site.register(Category, CategoryAdmin)
-
-
-###################
