@@ -4,16 +4,6 @@
 {% block content %}
  <div class="container">
 
-      <div class="blog-header">
-        <h1 class="blog-title">A Bootstrap Blog</h1>
-        <p class="lead blog-description">Thoughts On Life</p>
-
-        {% if categories %}
-            {% for category in categories %}
-                <a href="{{ category.get_absolute_url }}">|{{ category.title|upper }}|</a>
-            {% endfor %}
-        {% endif %}
-      </div>
 
       <div class="row">
         
@@ -31,12 +21,12 @@
         {% else %}
             <p>There are not posts yet!</p>
         {% endif %}
-          <nav>
+        <!--   <nav>
             <ul class="pager">
               <li><a href="#">Previous</a></li>
-              <li><a href="#">Next</a></li>
+              <li><a href="">Next</a></li>
             </ul>
-          </nav>
+          </nav> -->
 
         </div><!-- /.blog-main -->
 
